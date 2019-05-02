@@ -35,7 +35,7 @@ jobs:
   web_publish_to_aws_dev:
     environment:
       SERVERLESS_RELEASE_CHANNEL: dev
-      SERVERLESS_S3_BUCKET: $dev_web_bucket
+      SERVERLESS_S3_BUCKET: "${dev_web_bucket}"
     <<: *web_publish
 
   web_publish_to_aws_prod:
