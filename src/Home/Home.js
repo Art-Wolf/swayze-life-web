@@ -19,10 +19,13 @@ class Home extends Component {
           !isAuthenticated() && (
               <h4>
                 You are not logged in! Please{' '}
-                <a style={{ cursor: 'pointer' }}
+                <button
+                  type="button"
+                  className="link-button"
+                  style={{ cursor: 'pointer' }}
                   onClick={this.login.bind(this)}>
                   Log In
-                </a>
+                </button>
                 {' '}to continue.
               </h4>
             )
