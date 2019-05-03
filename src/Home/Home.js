@@ -15,13 +15,12 @@ export default class Home extends Component {
   listUsers() {
     const { getIdToken } = this.props.auth;
 
-    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/bingos/", {
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/bingos", {
             method: 'GET',
             headers: new Headers({
-                'Authorization': 'Basic ' + getIdToken(),
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Authorization': 'Bearer ' + getIdToken()
             }),
-            mode: 'no-cors'
+            mode: 'cors'
         })
         .then((response) => {
             return response.json();
@@ -37,7 +36,9 @@ export default class Home extends Component {
     const { isAuthenticated, getIdToken, getIdTokenDecoded } = this.props.auth;
 
     if (isAuthenticated()) {
-      this.listUsers();
+      if (this.state.isLoading) {
+        this.listUsers();
+      }
     }
 
     return (
