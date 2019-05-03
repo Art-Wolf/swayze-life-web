@@ -12,10 +12,36 @@ export default class Home extends Component {
     this.props.auth.login();
   }
 
-  listUsers() {
+  userExistsCheck(val) {
+    console.log("Checking for: " + val.name + ", " + val.auth0);
+
+    return this.state.users.find(el => el.auth0 == val.auth0);
+  }
+
+  createUser(user) {
     const { getIdToken } = this.props.auth;
 
-    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/bingos", {
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users", {
+            method: 'POST',
+            headers: new Headers({
+                'Authorization': 'Bearer ' + getIdToken()
+            }),
+            mode: 'cors',
+            body: JSON.stringify(user)
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log('Created User: ', json)
+            this.listUsers();
+        });
+  }
+
+  listUsers() {
+    const { getIdToken, getName, getUserId } = this.props.auth;
+
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users", {
             method: 'GET',
             headers: new Headers({
                 'Authorization': 'Bearer ' + getIdToken()
@@ -28,12 +54,20 @@ export default class Home extends Component {
         .then((json) => {
             console.log('List: ', json)
             this.setState({ users: json })
+
+
+            let body = {'name': getName(), 'auth0': getUserId()};
+
+            if (!this.userExistsCheck(body)) {
+              this.createUser(body);
+            }
+
             this.setState({ isLoading: false })
         });
   }
 
   render() {
-    const { isAuthenticated, getIdToken, getIdTokenDecoded } = this.props.auth;
+    const { isAuthenticated, getIdToken, getName } = this.props.auth;
 
     if (isAuthenticated()) {
       if (this.state.isLoading) {
@@ -47,7 +81,7 @@ export default class Home extends Component {
           isAuthenticated() && (
             <div>
               <h4>
-                You are logged in! Hello {getIdTokenDecoded()}
+                You are logged in! Hello {getName()}
               </h4>
               <p>{getIdToken()}</p>
             </div>

@@ -22,7 +22,8 @@ export default class Auth {
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
-    this.getIdTokenDecoded = this.getIdTokenDecoded.bind(this);
+    this.getName = this.getName.bind(this);
+    this.getUserId = this.getUserId.bind(this);
     this.renewSession = this.renewSession.bind(this);
   }
 
@@ -50,7 +51,7 @@ export default class Auth {
     return this.idToken;
   }
 
-  getIdTokenDecoded() {
+  getName() {
     let base64Url = this.idToken.split('.')[1];
     let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
@@ -58,6 +59,16 @@ export default class Auth {
 
     console.log(JSON.parse(base64));
     return JSON.parse(base64).name;
+  }
+
+  getUserId() {
+    let base64Url = this.idToken.split('.')[1];
+    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    console.log(JSON.parse(base64));
+    return JSON.parse(base64).sub;
   }
 
   setSession(authResult) {
