@@ -15,7 +15,7 @@ export default class Home extends Component {
   userExistsCheck(val) {
     console.log("Checking for: " + val.name + ", " + val.auth0);
 
-    return this.state.users.find(el => el.auth0 == val.auth0);
+    return this.state.users.find(el => el.auth0 === val.auth0);
   }
 
   createUser(user) {
