@@ -12,7 +12,7 @@ export default class Auth {
     clientID: AUTH_CONFIG.clientId,
     redirectUri: AUTH_CONFIG.callbackUrl,
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid profile'
   });
 
   constructor() {
@@ -22,6 +22,7 @@ export default class Auth {
     this.isAuthenticated = this.isAuthenticated.bind(this);
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
+    this.getIdTokenDecoded = this.getIdTokenDecoded.bind(this);
     this.renewSession = this.renewSession.bind(this);
   }
 
@@ -47,6 +48,16 @@ export default class Auth {
 
   getIdToken() {
     return this.idToken;
+  }
+
+  getIdTokenDecoded() {
+    let base64Url = this.idToken.split('.')[1];
+    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    console.log(JSON.parse(base64));
+    return JSON.parse(base64).name;
   }
 
   setSession(authResult) {

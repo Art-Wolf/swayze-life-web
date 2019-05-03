@@ -1,18 +1,55 @@
 import React, { Component } from 'react';
 
-class Home extends Component {
+export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+  }
+
   login() {
     this.props.auth.login();
   }
+
+  listUsers() {
+    const { getIdToken } = this.props.auth;
+
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/bingos/", {
+            method: 'GET',
+            headers: new Headers({
+                'Authorization': 'Basic ' + getIdToken(),
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }),
+            mode: 'cors'
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            console.log('List: ', json)
+            this.setState({ users: json })
+            this.setState({ isLoading: false })
+        });
+  }
+
   render() {
-    const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated, getIdToken, getIdTokenDecoded } = this.props.auth;
+
+    if (isAuthenticated()) {
+      this.listUsers();
+    }
+
     return (
       <div className="container">
         {
           isAuthenticated() && (
+            <div>
               <h4>
-                You are logged in!
+                You are logged in! Hello {getIdTokenDecoded()}
               </h4>
+              <p>{getIdToken()}</p>
+            </div>
             )
         }
         {
@@ -34,5 +71,3 @@ class Home extends Component {
     );
   }
 }
-
-export default Home;
