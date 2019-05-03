@@ -21,7 +21,7 @@ export default class Home extends Component {
                 'Authorization': 'Basic ' + getIdToken(),
                 'Content-Type': 'application/x-www-form-urlencoded'
             }),
-            mode: 'cors'
+            mode: 'no-cors'
         })
         .then((response) => {
             return response.json();
