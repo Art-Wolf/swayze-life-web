@@ -23,7 +23,6 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.getName = this.getName.bind(this);
-    this.getNonce = this.getNonce.bind(this);
     this.getUserId = this.getUserId.bind(this);
     this.renewSession = this.renewSession.bind(this);
   }
@@ -60,16 +59,6 @@ export default class Auth {
 
     console.log(JSON.parse(base64));
     return JSON.parse(base64).name;
-  }
-
-  getNonce() {
-    let base64Url = this.idToken.split('.')[1];
-    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    console.log(JSON.parse(base64));
-    return JSON.parse(base64).nonce;
   }
 
   getUserId() {
@@ -121,6 +110,8 @@ export default class Auth {
 
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('id_token');
 
     //this.auth0.logout({
     //  returnTo: window.location.origin
