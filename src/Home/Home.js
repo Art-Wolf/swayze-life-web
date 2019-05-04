@@ -103,7 +103,6 @@ export default class Home extends Component {
               <h4>
                 You are logged in! Hello {getName()}
               </h4>
-              <p>{getIdToken()}</p>
               <div>
                 <div class="row">
                   {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 0, 3) : ''}
