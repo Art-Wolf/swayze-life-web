@@ -18,3 +18,29 @@ body {
 .link-button:focus {
 text-decoration: none;
 }
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  max-width: 25%;
+}
+
+.row {
+  height: 25%;
+}
+
+.column img {
+  width: 80px;
+  height: 80px;
+  padding: 2px;
+  margin: 2px;
+  border-radius: 5px;
+  background: #73AD21;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}

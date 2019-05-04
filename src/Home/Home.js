@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Row, Col, Image } from "react-bootstrap";
 
 export default class Home extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ export default class Home extends Component {
         })
         .then((json) => {
             console.log('Created User: ', json)
-            this.listUsers();
+            this.setState({ current_user: json});
         });
   }
 
@@ -71,11 +72,25 @@ export default class Home extends Component {
 
             if (!this.userExistsCheck(body)) {
               this.createUser(body);
+            } else {
+              this.setState({ current_user: this.userExistsCheck(body)});
             }
 
             this.setState({ isLoading: false })
         });
   }
+
+  renderBingoGrid(bingoList, min, max) {
+      return [{}].concat(bingoList).map(
+        (bingo, i) =>
+          i >= min && i <= max
+            ?
+                <div class="column">
+                  <img src={bingo.icon} />
+                </div>
+            : ''
+      );
+    }
 
   render() {
     const { isAuthenticated, getIdToken, getName } = this.props.auth;
@@ -89,6 +104,20 @@ export default class Home extends Component {
                 You are logged in! Hello {getName()}
               </h4>
               <p>{getIdToken()}</p>
+              <div>
+                <div class="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 0, 3) : ''}
+                </div>
+                <div class="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 4, 7) : ''}
+                </div>
+                <div class="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 8, 11) : ''}
+                </div>
+                <div class="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 12, 15) : ''}
+                </div>
+              </div>
             </div>
             )
         }
