@@ -8,6 +8,16 @@ export default class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    const { isAuthenticated } = this.props.auth;
+
+    if (isAuthenticated()) {
+      if (this.state.isLoading) {
+        this.listUsers();
+      }
+    }
+  }
+
   login() {
     this.props.auth.login();
   }
@@ -69,12 +79,6 @@ export default class Home extends Component {
 
   render() {
     const { isAuthenticated, getIdToken, getName } = this.props.auth;
-
-    if (isAuthenticated()) {
-      if (this.state.isLoading) {
-        this.listUsers();
-      }
-    }
 
     return (
       <div className="container">
