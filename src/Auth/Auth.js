@@ -23,6 +23,7 @@ export default class Auth {
     this.getAccessToken = this.getAccessToken.bind(this);
     this.getIdToken = this.getIdToken.bind(this);
     this.getName = this.getName.bind(this);
+    this.getNonce = this.getNonce.bind(this);
     this.getUserId = this.getUserId.bind(this);
     this.renewSession = this.renewSession.bind(this);
   }
@@ -61,6 +62,16 @@ export default class Auth {
     return JSON.parse(base64).name;
   }
 
+  getNonce() {
+    let base64Url = this.idToken.split('.')[1];
+    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    console.log(JSON.parse(base64));
+    return JSON.parse(base64).nonce;
+  }
+
   getUserId() {
     let base64Url = this.idToken.split('.')[1];
     let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
@@ -76,19 +87,23 @@ export default class Auth {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('access_token', authResult.accessToken);
     localStorage.setItem('id_token', authResult.idToken);
-    
+
     // Set the time that the access token will expire at
     let expiresAt = (authResult.expiresIn * 1000) + new Date().getTime();
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
+    localStorage.setItem('nonce', this.getNonce());
+
     // navigate to the home route
     history.replace('/home');
   }
 
   renewSession() {
-    this.auth0.checkSession({}, (err, authResult) => {
+    let nonce = localStorage.getItem('nonce');
+
+    this.auth0.checkSession({'nonce': nonce}, (err, authResult) => {
        if (authResult && authResult.accessToken && authResult.idToken) {
          this.setSession(authResult);
        } else if (err) {
