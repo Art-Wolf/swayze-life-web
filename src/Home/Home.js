@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Row, Col, Image } from "react-bootstrap";
 
 export default class Home extends Component {
   constructor(props) {
@@ -86,14 +85,14 @@ export default class Home extends Component {
           i >= min && i <= max
             ?
                 <div class="column">
-                  <img src={bingo.icon} />
+                  <img src={bingo.icon} alt={bingo.name}/>
                 </div>
             : ''
       );
     }
 
   render() {
-    const { isAuthenticated, getIdToken, getName } = this.props.auth;
+    const { isAuthenticated, getName } = this.props.auth;
 
     return (
       <div className="container">
