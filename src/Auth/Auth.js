@@ -52,23 +52,28 @@ export default class Auth {
   }
 
   getName() {
-    let base64Url = this.idToken.split('.')[1];
-    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+    if (this.idToken) {
+      let base64Url = this.idToken.split('.')[1];
+      let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
 
-    console.log(JSON.parse(base64));
-    return JSON.parse(base64).name;
+      //console.log(JSON.parse(base64));
+      return JSON.parse(base64).name;
+    }
   }
 
   getUserId() {
-    let base64Url = this.idToken.split('.')[1];
-    let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+    if (this.idToken) {
+      let base64Url = this.idToken.split('.')[1];
+      let base64 = decodeURIComponent(atob(base64Url).split('').map(function(c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
 
-    console.log(JSON.parse(base64));
-    return JSON.parse(base64).sub;
+      //console.log(JSON.parse(base64));
+      return JSON.parse(base64).sub;
+    }
+
   }
 
   setSession(authResult) {
@@ -114,6 +119,7 @@ export default class Auth {
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('access_token');
     localStorage.removeItem('id_token');
+    localStorage.removeItem('expiresAt');
 
     //this.auth0.logout({
     //  returnTo: window.location.origin
@@ -126,6 +132,9 @@ export default class Auth {
   isAuthenticated() {
     // Check whether the current time is past the
     // access token's expiry time
+    this.accessToken = localStorage.getItem('access_token');
+    this.idToken = localStorage.getItem('id_token');
+    this.expiresAt = localStorage.getItem('expiresAt');
     let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
   }

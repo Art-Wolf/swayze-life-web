@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { LinkContainer } from "react-router-bootstrap";
 
 export default class Home extends Component {
   constructor(props) {
@@ -63,9 +64,7 @@ export default class Home extends Component {
             return response.json();
         })
         .then((json) => {
-            console.log('List: ', json)
             this.setState({ users: json })
-
 
             let body = {'name': getName(), 'auth0': getUserId()};
 
@@ -82,10 +81,15 @@ export default class Home extends Component {
   renderBingoGrid(bingoList, min, max) {
       return [{}].concat(bingoList).map(
         (bingo, i) =>
-          i >= min && i <= max
+          i !== 0 && i >= min && i <= max
             ?
-                <div class="column">
+                <div className="column" key={i}>
+                <LinkContainer
+                    key={bingo.id}
+                    to={`/bingo/${bingo.id}`}
+                  >
                   <img src={bingo.icon} alt={bingo.name}/>
+                </LinkContainer>
                 </div>
             : ''
       );
@@ -102,18 +106,19 @@ export default class Home extends Component {
               <h4>
                 You are logged in! Hello {getName()}
               </h4>
+              <p>Current User set: {this.state.current_user ? 'yes' : 'no'}</p>
               <div>
-                <div class="row">
-                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 0, 3) : ''}
+                <div className="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 1, 4) : ''}
                 </div>
-                <div class="row">
-                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 4, 7) : ''}
+                <div className="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 5, 8) : ''}
                 </div>
-                <div class="row">
-                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 8, 11) : ''}
+                <div className="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 9, 12) : ''}
                 </div>
-                <div class="row">
-                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 12, 15) : ''}
+                <div className="row">
+                  {this.state.current_user ? this.renderBingoGrid(this.state.current_user.bingoList, 13, 16) : ''}
                 </div>
               </div>
             </div>
