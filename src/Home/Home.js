@@ -21,10 +21,11 @@ export default class Home extends Component {
   createUser(user) {
     const { getIdToken } = this.props.auth;
 
-    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users/asd", {
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users", {
             method: 'POST',
             headers: new Headers({
-                'Authorization': 'Bearer ' + getIdToken()
+                'Authorization': 'Bearer ' + getIdToken(),
+                'Content-Type': 'application/json'
             }),
             mode: 'cors',
             body: JSON.stringify(user)
