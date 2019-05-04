@@ -94,24 +94,23 @@ export default class Auth {
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
 
-    localStorage.setItem('nonce', this.getNonce());
-
     // navigate to the home route
     history.replace('/home');
   }
 
   renewSession() {
-    let nonce = localStorage.getItem('nonce');
+    this.accessToken = localStorage.getItem('access_token');
+    this.idToken = localStorage.getItem('id_token');
 
-    this.auth0.checkSession({'nonce': nonce}, (err, authResult) => {
-       if (authResult && authResult.accessToken && authResult.idToken) {
-         this.setSession(authResult);
-       } else if (err) {
-         this.logout();
-         console.log(err);
-         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
-       }
-    });
+//    this.auth0.checkSession({}, (err, authResult) => {
+//       if (authResult && authResult.accessToken && authResult.idToken) {
+//         this.setSession(authResult);
+//       } else if (err) {
+//         this.logout();
+//         console.log(err);
+//         alert(`Could not get a new token (${err.error}: ${err.error_description}).`);
+//       }
+//    });
   }
 
   logout() {
