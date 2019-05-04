@@ -106,9 +106,9 @@ export default class Auth {
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
 
-    this.auth0.logout({
-      returnTo: window.location.origin
-    });
+    //this.auth0.logout({
+    //  returnTo: window.location.origin
+    //});
 
     // navigate to the home route
     history.replace('/home');

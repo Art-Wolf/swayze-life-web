@@ -21,7 +21,7 @@ export default class Home extends Component {
   createUser(user) {
     const { getIdToken } = this.props.auth;
 
-    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users", {
+    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/users/asd", {
             method: 'POST',
             headers: new Headers({
                 'Authorization': 'Bearer ' + getIdToken()
