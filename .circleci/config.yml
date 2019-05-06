@@ -17,6 +17,11 @@ web_publish: &web_publish
            echo "export const AUTH_CONFIG = { domain: '${AUTH0_DOMAIN}', clientId: '${AUTH0_CLIENT_ID}', callbackUrl: '${AUTH0_CALLBACK_URL}'}" > ~/swayze-life/src/Auth/auth0-variables.js
 
     - run:
+        name: Configure API
+        command: |
+          echo "export const config = { apiUrl: '${API_DOMAIN}'};" > ~/swayze-life/src/config.js
+
+    - run:
         name: Build website
         command: |
             npm run build
@@ -36,12 +41,14 @@ jobs:
     environment:
       SERVERLESS_RELEASE_CHANNEL: dev
       SERVERLESS_S3_BUCKET: swayze-life-web-dev
+      API_DOMAIN: https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/
     <<: *web_publish
 
   web_publish_to_aws_prod:
     environment:
       SERVERLESS_RELEASE_CHANNEL: prod
       SERVERLESS_S3_BUCKET: swayze-life-web-prod
+      API_DOMAIN: https://klf0b851mc.execute-api.us-east-1.amazonaws.com/prod/
     <<: *web_publish
 
 workflows:

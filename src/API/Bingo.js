@@ -36,6 +36,25 @@ class Bingo {
 
     return getBingoResponse;
   }
+
+
+  async markUncomplete(bingoId, authIdToken) {
+    let getBingoResponse = await fetch(config.apiUrl + "bingos/" + bingoId + "/uncomplete", {
+            method: 'PUT',
+            headers: new Headers({
+                'Authorization': 'Bearer ' + authIdToken
+            }),
+            mode: 'cors'
+        })
+        .then((response) => {
+            return response.json();
+        })
+        .then((json) => {
+            return json;
+        });
+
+    return getBingoResponse;
+  }
 }
 
 const bingoApi = new Bingo();

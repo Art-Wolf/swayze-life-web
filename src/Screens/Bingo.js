@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { LinkContainer } from "react-router-bootstrap";
 import { Button } from 'react-bootstrap';
 import bingoApi from '../API/Bingo';
 
@@ -33,24 +32,13 @@ export default class Bingo extends Component {
   async markComplete() {
     const { getIdToken } = this.props.auth;
     await bingoApi.markComplete(this.state.id, getIdToken());
-    this.props.history.replace('/home')
+    this.props.history.replace('/game')
   }
 
-  renderBingoGrid(bingoList, min, max) {
-      return [{}].concat(bingoList).map(
-        (bingo, i) =>
-          i !== 0 && i >= min && i <= max
-            ?
-                <div className="column" key={i}>
-                  <LinkContainer
-                      key={bingo.id}
-                      to={`/bingo/${bingo.id}`}
-                    >
-                    <img src={bingo.icon} alt={bingo.name}/>
-                  </LinkContainer>
-                </div>
-            : ''
-      );
+  async markUncomplete() {
+    const { getIdToken } = this.props.auth;
+    await bingoApi.markUncomplete(this.state.id, getIdToken());
+    this.props.history.replace('/game')
   }
 
   renderBingoName() {
@@ -93,13 +81,21 @@ export default class Bingo extends Component {
                 {this.renderBingoBlurb()}
               </div>
 
+              {this.state.bingo.completed?
               <Button
                 id="completeBtn"
-                bsStyle="primary"
+                bsStyle="warning"
+                className="btn-margin"
+                onClick={this.markUncomplete.bind(this)}>
+                Bah - not actually complete
+              </Button> :
+              <Button
+                id="completeBtn"
+                bsStyle="success"
                 className="btn-margin"
                 onClick={this.markComplete.bind(this)}>
                 Complete
-              </Button>
+              </Button>}
             </div>
           )
         }

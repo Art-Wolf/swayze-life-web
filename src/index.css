@@ -62,6 +62,14 @@ text-decoration: none;
   margin-right: auto;
   padding: 2px;
 }
+
+.swayzeImage {
+  display: table;
+  max-width: 150px;
+  max-height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Clear floats after image containers */
 .row::after {
   content: "";

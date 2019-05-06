@@ -31,14 +31,16 @@ class App extends Component {
         <Navbar fluid>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#top">The Swayze Life</a>
+              <a
+              href="#top"
+              onClick={this.goTo.bind(this, 'home')}>The Swayze Life</a>
             </Navbar.Brand>
             <Button
               bsStyle="primary"
               className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
+              onClick={this.goTo.bind(this, 'game')}
             >
-              Home
+              Game
             </Button>
             {
               !isAuthenticated() && (
