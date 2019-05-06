@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Router } from 'react-router-dom';
 import App from './App';
-import Home from './Home/Home';
-import Bingo from './Bingo/Bingo';
+import Home from './Screens/Home';
+import Bingo from './Screens/Bingo';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';

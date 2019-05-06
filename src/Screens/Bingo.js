@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { LinkContainer } from "react-router-bootstrap";
+import { Button } from 'react-bootstrap';
+import bingoApi from '../API/Bingo';
 
 export default class Bingo extends Component {
   constructor(props) {
@@ -11,12 +13,15 @@ export default class Bingo extends Component {
     };
   }
 
-  componentDidMount() {
-    const { isAuthenticated } = this.props.auth;
+  async componentDidMount() {
+    const {getIdToken, isAuthenticated } = this.props.auth;
 
     if (isAuthenticated()) {
       if (this.state.isLoading) {
-        this.getLoadedBingo();
+        let bingoResponse = await bingoApi.getBingo(this.state.id, getIdToken());
+        this.setState({ bingo: bingoResponse })
+        console.log(JSON.stringify(this.state.bingo));
+        this.setState({ isLoading: false })
       }
     }
   }
@@ -25,24 +30,10 @@ export default class Bingo extends Component {
     this.props.auth.login();
   }
 
-  getLoadedBingo() {
+  async markComplete() {
     const { getIdToken } = this.props.auth;
-
-    fetch("https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/bingos/" + this.state.id, {
-            method: 'GET',
-            headers: new Headers({
-                'Authorization': 'Bearer ' + getIdToken()
-            }),
-            mode: 'cors'
-        })
-        .then((response) => {
-            return response.json();
-        })
-        .then((json) => {
-            this.setState({ bingo: json })
-            console.log(JSON.stringify(this.state.bingo));
-            this.setState({ isLoading: false })
-        });
+    await bingoApi.markComplete(this.state.id, getIdToken());
+    this.props.history.replace('/home')
   }
 
   renderBingoGrid(bingoList, min, max) {
@@ -72,7 +63,7 @@ export default class Bingo extends Component {
 
   renderBingoImage() {
     return (
-      <div>
+      <div className="bingoImage">
         <img src={this.state.bingo.image} alt={this.state.bingo.name}/>
       </div>
     );
@@ -101,6 +92,14 @@ export default class Bingo extends Component {
               <div>
                 {this.renderBingoBlurb()}
               </div>
+
+              <Button
+                id="completeBtn"
+                bsStyle="primary"
+                className="btn-margin"
+                onClick={this.markComplete.bind(this)}>
+                Complete
+              </Button>
             </div>
           )
         }
