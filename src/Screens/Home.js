@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { LinkContainer, ListGroupItem } from "react-router-bootstrap";
 import userApi from '../API/User';
 
 export default class Home extends Component {
