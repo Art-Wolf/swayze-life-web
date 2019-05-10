@@ -27,7 +27,6 @@ export default class Home extends Component {
          if (!currentUser) {
            currentUser = await userApi.createUser (body, getIdToken ());
          }
-
          this.setState ({current_user: currentUser});
        }
      }
