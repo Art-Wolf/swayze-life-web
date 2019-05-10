@@ -19,7 +19,7 @@ web_publish: &web_publish
     - run:
         name: Configure API
         command: |
-          echo "export const config = { apiUrl: '${API_DOMAIN}'};" > ~/swayze-life/src/config.js
+          echo "export const config = { apiUrl: '${API_DOMAIN}', mapsKey: '${GOOGLE_MAPS_API_KEY}'};" > ~/swayze-life/src/config.js
 
     - run:
         name: Build website
