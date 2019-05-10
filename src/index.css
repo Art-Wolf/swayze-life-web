@@ -76,3 +76,28 @@ text-decoration: none;
   clear: both;
   display: table;
 }
+
+.rules {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
+  background: #e7e7e7;
+}
+
+.rules h1 {
+  color: #777;
+}
+
+.rules p {
+  margin: 5px;
+  padding: 5px;
+}
+
+.players {
+  padding: 5px;
+  margin: 5px;
+}
+
+.barCompleted {
+  background: #cccccc;
+}
