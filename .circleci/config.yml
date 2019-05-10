@@ -50,7 +50,7 @@ jobs:
       SERVERLESS_RELEASE_CHANNEL: prod
       SERVERLESS_S3_BUCKET: swayze-life-web-prod
       API_DOMAIN: https://1py3q5yva2.execute-api.us-east-1.amazonaws.com/prod/
-      AUTH0_CALLBACK_URL: https://www.theswayzelife.com/callback
+      AUTH0_CALLBACK_URL: https://theswayzelife.com/callback
     <<: *web_publish
 
 workflows:
