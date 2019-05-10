@@ -1,0 +1,937 @@
+{
+	"info": {
+		"_postman_id": "9245a56d-8ae0-4e95-b667-b583df6590ef",
+		"name": "SwayzeLife",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "bingos",
+			"item": [
+				{
+					"name": "Create All",
+					"item": [
+						{
+							"name": "Fuckin’ Snoozing",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Fuckin' Snoozing\",\n\t\"blurb\": \"Catch him sleeping - a shot down the throat will wake him up\",\n\t\"icon\": \"/images/icons/fuckin-noozing.png\",\n\t\"image\": \"/images/fuckin-noozing.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Galwegian Singing",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Galwegian Singing\",\n\t\"blurb\": \"Get him to sing The Rattlin' Bog... or any dreary Irish song..\",\n\t\"icon\": \"/images/icons/galwegian-singing.png\",\n\t\"image\": \"/images/galwegian-singing.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pile On",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Pile On\",\n\t\"blurb\": \"He’s on the ground? Grab someone to hop on top of him\",\n\t\"icon\": \"/images/icons/pile-on.png\",\n\t\"image\": \"/images/pile-on.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Do The Turtle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Do The Turtle\",\n\t\"blurb\": \"Get him dancing his signature turtle dance - a redbull and vodka will keep him up on the dance floor\",\n\t\"icon\": \"/images/icons/do-the-turtle.png\",\n\t\"image\": \"/images/do-the-turtle.png\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Put Baby In The Corner",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Put Baby In The Corner\",\n\t\"blurb\": \"Caught the little bastard trying to sneak off? You think Johnny would approve of that!? Drag that gremline back into the game with a shot.\",\n\t\"icon\": \"/images/icons/put-baby-in-the-corner.png\",\n\t\"image\": \"/images/put-baby-in-the-corner.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Where’s The Jacket?",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Where's The Jacket?\",\n\t\"blurb\": \"Did he lose his bloody jacket? Best get him a whiskey to warm him up.\",\n\t\"icon\": \"/images/icons/wheres-the-jacket.png\",\n\t\"image\": \"/images/wheres-the-jacket.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Speedos Out",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Speedos Out\",\n\t\"blurb\": \"Fuck the clothes - they are in the way. Get him down to his speedos.\",\n\t\"icon\": \"/images/icons/speedos-out.png\",\n\t\"image\": \"/images/speedos-out.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Smokin",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Smokin'\",\n\t\"blurb\": \"Derm’s will be like bloody iron. So he will only bend when he really wants a smoke.\",\n\t\"icon\": \"/images/icons/smokin.png\",\n\t\"image\": \"/images/smokin.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Down the Bottle",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Down the Bottle\",\n\t\"blurb\": \"Nastiest bottle of cheap red wine - nearest we will get to buckfast.. Bet ya can’t get him to down it in one..\",\n\t\"icon\": \"/images/icons/down-the-bottle.png\",\n\t\"image\": \"/images/down-the-bottle.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Awkward Selfie",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Awkward Selfie\",\n\t\"blurb\": \"A trip away simply wouldn’t be complete without an awkward selfie to accompany it\",\n\t\"icon\": \"/images/icons/awkward-selfie.png\",\n\t\"image\": \"/images/awkward-selfie.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Director",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Director\",\n\t\"blurb\": \"Alwats bloody smoozing and networking! Well, let Derm try and pay for a round, but have the bartender tell him his card was declined. The meltdown is needed.\",\n\t\"icon\": \"/images/icons/director.png\",\n\t\"image\": \"/images/director.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Terrorize Teddy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Terrorize Teddy\",\n\t\"blurb\": \"Can you get a cry from Derm over doing something horrific to your teddy in front of him?\",\n\t\"icon\": \"/images/icons/terrorize-teddy.png\",\n\t\"image\": \"/images/terrorize-teddy.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Absentee Dad",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Absentee Dad\",\n\t\"blurb\": \"Jesus, can't believe anyone would marry this monster. Remind him how he got rid of his first born.\",\n\t\"icon\": \"/images/icons/absentee-dad.png\",\n\t\"image\": \"/images/absentee-dad.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Call Jacky",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Call Jacky\",\n\t\"blurb\": \"Best mates should keep in contact. Paul's got his number, so you'll first have to sex it out of him.\",\n\t\"icon\": \"/images/icons/call-jacky.png\",\n\t\"image\": \"/images/call-jacky.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Hairy Fucker",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hairy Fucker\",\n\t\"blurb\": \"When will he finally do it - strip the top and bare all. Fat camp was a success!\",\n\t\"icon\": \"/images/icons/hair-fucker.png\",\n\t\"image\": \"/images/hair-fucker.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fashion 101",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{AUTH0_TOKEN}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Fashion 101\",\n\t\"blurb\": \"If Derm wasn’t stylish enough already, let's help him out a bit - get him to wear your Goodwill shit.\",\n\t\"icon\": \"/images/icons/fashion-101.png\",\n\t\"image\": \"/images/fashion-101.jpg\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bingos",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bingos"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Bingos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{AUTH0_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/bingos",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bingos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bars",
+			"item": [
+				{
+					"name": "Create All",
+					"item": [
+						{
+							"name": "Rí Rá Irish Pub & Restaurant",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Rí Rá Irish Pub & Restaurant\",\n\t\"address\": \"72 Commercial St, Portland, ME 04101\",\n\t\"lat\": \"43.6572023\",\n\t\"long\": \"-70.2498358\",\n\t\"order\": \"1\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Old Port Tavern",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Old Port Tavern\",\n\t\"address\": \"11 Moulton St, Portland, ME 04101\",\n\t\"lat\": \"43.6563869\",\n\t\"long\": \"-70.2530955\",\n\t\"order\": \"2\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Gritty McDuffs",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Gritty McDuffs\",\n\t\"address\": \"396 Fore St, Portland, ME 04101\",\n\t\"lat\": \"43.6564108\",\n\t\"long\": \"-70.2533609\",\n\t\"order\": \"3\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bonfire Country Bar",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Bonfire Country Bar\",\n\t\"address\": \"37 Wharf St, Portland, ME 04101\",\n\t\"lat\": \"43.6556905\",\n\t\"long\": \"-70.2546058\",\n\t\"order\": \"4\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rivalries",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Rivalries\",\n\t\"address\": \"10 Cotton St, Portland, ME 04101\",\n\t\"lat\": \"43.655211\",\n\t\"long\": \"-70.2570498\",\n\t\"order\": \"5\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Brian Boru Public House",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Brian Boru Public House\",\n\t\"address\": \"57 Center St, Portland, ME 04101\",\n\t\"lat\": \"43.6553148\",\n\t\"long\": \"-70.2574599\",\n\t\"order\": \"6\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Binga's Stadium",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Binga's Stadium\",\n\t\"address\": \"77 Free St, Portland, ME 04101\",\n\t\"lat\": \"43.655816\",\n\t\"long\": \"-70.259794\",\n\t\"order\": \"7\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Shays Grill Pub",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Shays Grill Pub\",\n\t\"address\": \"18 Monument Way, Portland, ME 04101\",\n\t\"lat\": \"43.657496\",\n\t\"long\": \"-70.258619\",\n\t\"order\": \"8\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Arcadia National Bar",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Arcadia National Bar\",\n\t\"address\": \"24 Preble St, Portland, ME 04101\",\n\t\"lat\": \"43.6489308\",\n\t\"long\": \"-70.2380126\",\n\t\"order\": \"9\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bubba's Sulky Lounge",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{AUTH0_TOKEN}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Bubba's Sulky Lounge\",\n\t\"address\": \"92 Portland St, Portland, ME 04101\",\n\t\"lat\": \"43.6500435\",\n\t\"long\": \"-70.2424754\",\n\t\"order\": \"10\"\n}"
+								},
+								"url": {
+									"raw": "{{API_URL}}/bars",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"bars"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Bars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{API_URL}}/bars",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"bars"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
