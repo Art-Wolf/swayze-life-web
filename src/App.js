@@ -21,6 +21,8 @@ class App extends Component {
     if (localStorage.getItem ('isLoggedIn') === 'true') {
       renewSession ();
     }
+
+    this.props.history.replace('/home');
   }
 
   render () {

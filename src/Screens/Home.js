@@ -13,8 +13,34 @@ export default class Home extends Component {
   async componentDidMount () {
     const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
 
+    this.setState ({isLoading: true});
     if (isAuthenticated ()) {
       if (this.state.isLoading) {
+        let listUsers = await userApi.listUsers (getIdToken ());
+
+        let body = {name: getName (), auth0: getUserId ()};
+
+        this.setState ({users: listUsers});
+        this.setState ({isLoading: false});
+
+        let currentUser = this.userExistsCheck (body);
+
+        if (!currentUser) {
+          currentUser = await userApi.createUser (body, getIdToken ());
+        }
+
+        this.setState ({current_user: currentUser});
+      }
+    }
+  }
+
+  async componentDidUpdate(prevProps) {
+    const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
+
+
+    if (isAuthenticated ()) {
+      if (!this.state.users) {
+        
         let listUsers = await userApi.listUsers (getIdToken ());
 
         let body = {name: getName (), auth0: getUserId ()};
@@ -97,9 +123,7 @@ export default class Home extends Component {
                 <h2>Players</h2>
               </div>
               <ListGroup>
-                {this.state.isLoading
-                  ? <ListGroupItem>'Loading users...'</ListGroupItem>
-                  : this.renderUsersList (this.state.users)}
+                {!this.state.isLoading && this.renderUsersList (this.state.users) }
               </ListGroup>
             </div>
           </Row>}

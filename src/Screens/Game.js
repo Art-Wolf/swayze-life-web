@@ -19,6 +19,7 @@ export default class Game extends Component {
         let listUsers = await userApi.listUsers (getIdToken ());
 
         this.setState ({users: listUsers});
+        if (this.state.users) {
         let body = {name: getName (), auth0: getUserId ()};
 
         let currentUser = this.userExistsCheck (body);
@@ -27,7 +28,7 @@ export default class Game extends Component {
           userApi.createUser (body, getIdToken ());
         } else {
           this.setState ({current_user: currentUser});
-        }
+        }}
 
         this.setState ({isLoading: false});
       }
@@ -40,7 +41,6 @@ export default class Game extends Component {
 
   userExistsCheck (val) {
     console.log ('Checking for: ' + val.name + ', ' + val.auth0);
-
     return this.state.users.find (el => el.auth0 === val.auth0);
   }
 
@@ -48,7 +48,7 @@ export default class Game extends Component {
     return [{}].concat (bingoList).map (
       (bingo, i) =>
         i !== 0 && i >= min && i <= max
-          ? <Col key={i}>
+          ? <Col key={i} md="auto">
               <div
                 className={
                   'column ' + (bingo.completed ? 'bingoCompleted' : '')
@@ -97,7 +97,7 @@ export default class Game extends Component {
         <div className="page-header">
           <h1>Taco Bingo</h1>
         </div>
-        <div className="bingoGrid">
+        <div>
         {isAuthenticated () &&
           <Container>
             <Row>
@@ -112,7 +112,8 @@ export default class Game extends Component {
               {this.renderSquaresToGo ()}
             </Row>
             <br />
-            <Row>
+            <div className="bingoGrid">
+            <Row className="justify-content-md-center">
               {this.state.current_user
                 ? this.renderBingoGrid (this.state.current_user.bingoList, 1, 4)
                 : ''}
@@ -136,7 +137,7 @@ export default class Game extends Component {
                     16
                   )
                 : ''}
-            </Row>
+            </Row></div>
           </Container>}
         {!isAuthenticated () &&
           <h4>
