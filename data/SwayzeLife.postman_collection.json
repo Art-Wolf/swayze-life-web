@@ -30,7 +30,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"name\": \"Fuckin' Snoozing\",\n\t\"blurb\": \"Catch him sleeping - a shot down the throat will wake him up\",\n\t\"icon\": \"/images/icons/fuckin-noozing.png\",\n\t\"image\": \"/images/fuckin-noozing.jpg\"\n}"
+									"raw": "{\n\t\"name\": \"Fuckin' Snoozing\",\n\t\"blurb\": \"Catch him sleeping - a shot down the throat will wake him up\",\n\t\"icon\": \"/images/icons/fuckin-snoozing.png\",\n\t\"image\": \"/images/fuckin-snoozing.jpg\"\n}"
 								},
 								"url": {
 									"raw": "{{API_URL}}/bingos",
