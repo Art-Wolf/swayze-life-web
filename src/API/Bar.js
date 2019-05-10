@@ -16,6 +16,10 @@ class Bar {
       })
       .then (json => {
         let count = Object.keys (json).length;
+        json.sort (
+          (a, b) =>
+            parseInt (a.order ? a.order : 0) - parseInt (b.order ? b.order : 0)
+        );
         console.log ('API returned ' + count + ' bars.');
         return json;
       });

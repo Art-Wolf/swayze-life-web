@@ -46,9 +46,16 @@ export default class Home extends Component {
 
     return userList.map (user => {
       return (
-        <ListGroupItem key={user.id}>
-          {user.name}
-        </ListGroupItem>
+        <div
+          className={user.squaresToGo === 0 ? 'userCompleted' : ''}
+          key={user.id}
+        >
+          <ListGroupItem key={user.id}>
+            {user.name}
+            &nbsp; | {user.squaresToGo}
+            &nbsp; squares to go
+          </ListGroupItem>
+        </div>
       );
     });
   }
@@ -68,8 +75,10 @@ export default class Home extends Component {
         </Row>
         <br />
         <Row>
-          <div className="rules">
+          <div className="page-header">
             <h1>Taco Bingo</h1>
+          </div>
+          <div className="rules">
             <p>
               Murder is a harsh way to describe this, but Taco isn't surviving.
             </p>
@@ -84,7 +93,9 @@ export default class Home extends Component {
         {isAuthenticated () &&
           <Row>
             <div className="players">
-              <h1>Players</h1>
+              <div className="page-header">
+                <h2>Players</h2>
+              </div>
               <ListGroup>
                 {this.state.isLoading
                   ? <ListGroupItem>'Loading users...'</ListGroupItem>

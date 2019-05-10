@@ -57,7 +57,7 @@ text-decoration: none;
 .bingoImage img {
   display: table;
   max-width: 350px;
-  max-height: 350px;
+  max-height: 250px;
   margin-left: auto;
   margin-right: auto;
   padding: 2px;
@@ -98,6 +98,10 @@ text-decoration: none;
   margin: 5px;
 }
 
-.barCompleted {
+.barCompleted .list-group-item {
   background: #cccccc;
+}
+
+.userCompleted .list-group-item {
+  background: gold;
 }

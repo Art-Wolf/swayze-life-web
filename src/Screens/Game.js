@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {LinkContainer} from 'react-router-bootstrap';
-import {Col, Container, Row} from 'reactstrap';
+import React, { Component } from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
+import { Col, Container, Row } from 'reactstrap';
 import userApi from '../API/User';
 
 export default class Game extends Component {

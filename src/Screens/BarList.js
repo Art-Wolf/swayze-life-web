@@ -35,7 +35,7 @@ export default class BarList extends Component {
           ? <div className={bar.complete ? 'barCompleted' : ''} key={i}>
               <ListGroupItem>
                 <LinkContainer key={bar.id} to={`/bar/${bar.id}`}>
-                  <h4>{bar.name}</h4>
+                  <h4>{bar.order}. {bar.name}</h4>
                 </LinkContainer>
               </ListGroupItem>
             </div>
