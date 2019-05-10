@@ -97,7 +97,7 @@ export default class Game extends Component {
         <div className="page-header">
           <h1>Taco Bingo</h1>
         </div>
-        <div className="text-center">
+        <div className="bingoGrid">
         {isAuthenticated () &&
           <Container>
             <Row>
