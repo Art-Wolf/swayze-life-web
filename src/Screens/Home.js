@@ -40,7 +40,7 @@ export default class Home extends Component {
 
     if (isAuthenticated ()) {
       if (!this.state.users) {
-        
+
         let listUsers = await userApi.listUsers (getIdToken ());
 
         let body = {name: getName (), auth0: getUserId ()};
@@ -109,10 +109,10 @@ export default class Home extends Component {
               Murder is a harsh way to describe this, but Taco isn't surviving.
             </p>
             <p>
-              Log in, and you'll have a a square of objectives - you want to complete a full row or column. Each time anyone completes one, its marked off for everyone.
+              Log in, and you'll have a square of objectives - you want to complete a full row or column. Any time anyone completes one, its marked off for everyone.
             </p>
             <p>
-              First person who achieves this, they say the drink and everyone else buys it for Taco - and it's Drink or Drown time.
+              First person who achieves this, they name the drink and everyone else buys it for Taco - then it's Drink or Drown time.
             </p>
           </div>
         </Row>
