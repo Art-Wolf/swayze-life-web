@@ -42,13 +42,15 @@ jobs:
       SERVERLESS_RELEASE_CHANNEL: dev
       SERVERLESS_S3_BUCKET: swayze-life-web-dev
       API_DOMAIN: https://klf0b851mc.execute-api.us-east-1.amazonaws.com/dev/
+      AUTH0_CALLBACK_URL: https://dev.theswayzelife.com/callback
     <<: *web_publish
 
   web_publish_to_aws_prod:
     environment:
       SERVERLESS_RELEASE_CHANNEL: prod
       SERVERLESS_S3_BUCKET: swayze-life-web-prod
-      API_DOMAIN: https://klf0b851mc.execute-api.us-east-1.amazonaws.com/prod/
+      API_DOMAIN: https://1py3q5yva2.execute-api.us-east-1.amazonaws.com/prod
+      AUTH0_CALLBACK_URL: https://www.theswayzelife.com/callback
     <<: *web_publish
 
 workflows:
