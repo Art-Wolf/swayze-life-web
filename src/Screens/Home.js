@@ -11,53 +11,27 @@ export default class Home extends Component {
   }
 
   async componentDidMount () {
-    const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
+     const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
 
-    this.setState ({isLoading: true});
-    if (isAuthenticated ()) {
-      if (this.state.isLoading) {
-        let listUsers = await userApi.listUsers (getIdToken ());
+     if (isAuthenticated ()) {
+       if (this.state.isLoading) {
+         let listUsers = await userApi.listUsers (getIdToken ());
 
-        let body = {name: getName (), auth0: getUserId ()};
+         let body = {name: getName (), auth0: getUserId ()};
 
-        this.setState ({users: listUsers});
-        this.setState ({isLoading: false});
+         this.setState ({users: listUsers});
+         this.setState ({isLoading: false});
 
-        let currentUser = this.userExistsCheck (body);
+         let currentUser = this.userExistsCheck (body);
 
-        if (!currentUser) {
-          currentUser = await userApi.createUser (body, getIdToken ());
-        }
+         if (!currentUser) {
+           currentUser = await userApi.createUser (body, getIdToken ());
+         }
 
-        this.setState ({current_user: currentUser});
-      }
-    }
-  }
-
-  async componentDidUpdate(prevProps) {
-    const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
-
-
-    if (isAuthenticated ()) {
-      if (!this.state.users) {
-        
-        let listUsers = await userApi.listUsers (getIdToken ());
-
-        let body = {name: getName (), auth0: getUserId ()};
-
-        this.setState ({users: listUsers});
-        this.setState ({isLoading: false});
-
-        let currentUser = this.userExistsCheck (body);
-
-        if (!currentUser) {
-          currentUser = await userApi.createUser (body, getIdToken ());
-        }
-
-        this.setState ({current_user: currentUser});
-      }
-    }
-  }
+         this.setState ({current_user: currentUser});
+       }
+     }
+   }
 
   login () {
     this.props.auth.login ();
@@ -109,10 +83,10 @@ export default class Home extends Component {
               Murder is a harsh way to describe this, but Taco isn't surviving.
             </p>
             <p>
-              Log in, and you'll have a a square of objectives - you want to complete a full row or column. Each time anyone completes one, its marked off for everyone.
+              Log in, and you'll have a square of objectives - you want to complete a full row or column. Any time anyone completes one, its marked off for everyone.
             </p>
             <p>
-              First person who achieves this, they say the drink and everyone else buys it for Taco - and it's Drink or Drown time.
+              First person who achieves this, they name the drink and everyone else buys it for Taco - then it's Drink or Drown time.
             </p>
           </div>
         </Row>
@@ -123,7 +97,7 @@ export default class Home extends Component {
                 <h2>Players</h2>
               </div>
               <ListGroup>
-                {!this.state.isLoading && this.renderUsersList (this.state.users) }
+                {!this.state.isLoading && this.state.users && this.renderUsersList (this.state.users) }
               </ListGroup>
             </div>
           </Row>}

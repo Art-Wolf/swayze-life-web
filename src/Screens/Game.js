@@ -12,28 +12,27 @@ export default class Game extends Component {
   }
 
   async componentDidMount () {
-    const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
+     const {getIdToken, isAuthenticated, getName, getUserId} = this.props.auth;
 
-    if (isAuthenticated ()) {
-      if (this.state.isLoading) {
-        let listUsers = await userApi.listUsers (getIdToken ());
+     if (isAuthenticated ()) {
+       if (this.state.isLoading) {
+         let listUsers = await userApi.listUsers (getIdToken ());
 
-        this.setState ({users: listUsers});
-        if (this.state.users) {
-        let body = {name: getName (), auth0: getUserId ()};
+         let body = {name: getName (), auth0: getUserId ()};
 
-        let currentUser = this.userExistsCheck (body);
+         this.setState ({users: listUsers});
+         this.setState ({isLoading: false});
 
-        if (!currentUser) {
-          userApi.createUser (body, getIdToken ());
-        } else {
-          this.setState ({current_user: currentUser});
-        }}
+         let currentUser = this.userExistsCheck (body);
 
-        this.setState ({isLoading: false});
-      }
-    }
-  }
+         if (!currentUser) {
+           currentUser = await userApi.createUser (body, getIdToken ());
+         }
+
+         this.setState ({current_user: currentUser});
+       }
+     }
+   }
 
   login () {
     this.props.auth.login ();
@@ -41,6 +40,7 @@ export default class Game extends Component {
 
   userExistsCheck (val) {
     console.log ('Checking for: ' + val.name + ', ' + val.auth0);
+
     return this.state.users.find (el => el.auth0 === val.auth0);
   }
 
@@ -48,7 +48,7 @@ export default class Game extends Component {
     return [{}].concat (bingoList).map (
       (bingo, i) =>
         i !== 0 && i >= min && i <= max
-          ? <Col key={i} md="auto">
+          ? <Col key={i}>
               <div
                 className={
                   'column ' + (bingo.completed ? 'bingoCompleted' : '')
@@ -113,7 +113,7 @@ export default class Game extends Component {
             </Row>
             <br />
             <div className="bingoGrid">
-            <Row className="justify-content-md-center">
+            <Row>
               {this.state.current_user
                 ? this.renderBingoGrid (this.state.current_user.bingoList, 1, 4)
                 : ''}
